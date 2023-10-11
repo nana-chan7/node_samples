@@ -1,35 +1,33 @@
 // 2023-10-04 3.week3
+// 2023-10-11 3.week4
 
 // expressモジュール読み込み
 const express = require('express')
 // dotenvモジュール読み込み
 const dotenv = require('dotenv')
+// routerモジュール読み込み
+const routes = require('./routes')
 
 // dotenvの設定の読み込み
 dotenv.config()
 const HOST = process.env.HOST
 const PORT = process.env.PORT
 
-console.log(HOST)
-console.log(PORT)
+// console.log(HOST)
+// console.log(PORT)
 
 // サーバ作成
 const app = express()
 
-// GETリクエストの処理
-app.get('/', (req, res) =>{
-    // リクエストの処理
-    console.log(req.body)
-    console.log(req.url)
-    console.log(req.query)
-    
-    // レスポンスの処理
-    res.send('Hello!!!!!')
-})
+// ミドルウェアの設定 3.week4
+// publicフォルダを静的コンテンツのフォルダに指定 webに公開されている場所 → public
+app.use(express.static(__dirname + '/public'));
 
-app.get('/profile', (req, res) =>{
-    res.send('Profile Page')
-})
+// URLエンコード
+app.use(express.urlencoded({extended:true}))
+
+// ルーティングを有効
+app.use(routes)
 
 // ※ サーバー停止: 起動中のターミナルで Ctrl + C
 // サーバ待機 (Listen)
@@ -38,3 +36,4 @@ app.listen(PORT, HOST, () =>{
     console.log(PORT)
     console.log('wait...')
 })
+
