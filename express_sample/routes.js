@@ -6,7 +6,7 @@ const express = require('express')
 const router = express.Router()
 
 // GETリクエストの処理
-app.get('/', (req, res) =>{
+router.get('/', (req, res) =>{
     // リクエストの処理
     console.log(req.body)
     console.log(req.url)
