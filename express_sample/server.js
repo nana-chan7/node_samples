@@ -27,6 +27,10 @@ app.get('/', (req, res) =>{
     res.send('Hello!!!!!')
 })
 
+app.get('/profile', (req, res) =>{
+    res.send('Profile Page')
+})
+
 // ※ サーバー停止: 起動中のターミナルで Ctrl + C
 // サーバ待機 (Listen)
 app.listen(PORT, HOST, () =>{
