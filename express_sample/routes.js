@@ -1,4 +1,5 @@
 // 2023-10-11 3.week4
+// 2023-10-18 3.week5
 
 // expressモジュール読み込み
 const express = require('express')
@@ -18,6 +19,13 @@ router.get('/', (req, res) =>{
 
 router.get('/profile', (req, res) =>{
     res.send('プロフィール')
+})
+
+// /item/xxx のルーティング(パスパラメータ)
+router.get('/item/:id', (req, res) => {
+    const id = req.params.id 
+
+    res.send(id)
 })
 
 // POSTリクエスト 裏でログイン名とパスワードを送信する
