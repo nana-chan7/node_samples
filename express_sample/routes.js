@@ -16,7 +16,9 @@ router.get('/', (req, res) =>{
     console.log(req.query)
 
     // レスポンスの処理
-    res.send('Hello!!!')
+    // res.send('Hello!!!')
+    // テンプレート表示(レンダリング)
+    res.render('index')
 })
 
 router.get('/profile', (req, res) =>{
