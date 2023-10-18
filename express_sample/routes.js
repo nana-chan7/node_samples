@@ -56,7 +56,13 @@ router.get('/item/:id', (req, res) => {
     // TODO: case2> APIサーバを利用する
     // itemモデルを使って、IDで商品データを取得
     var selectItem = item.find(id)
-    res.send(selectItem.name)
+    // res.send(selectItem.name)
+    var data = {
+        title: '商品詳細',
+        item: selectItem,
+    }
+    // views/item/detail.ejsにデータを渡して表示
+    res.render('item/detail', data)
 })
 
 // POSTリクエスト 裏でログイン名とパスワードを送信する
