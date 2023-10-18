@@ -38,6 +38,17 @@ router.get('/profile', (req, res) =>{
 
 })
 
+// 商品一覧
+router.get('/item', (req, res) => {
+    var data = {
+        title: '商品一覧',
+        items: item.get(),
+    }
+    // views/item/index.ejsにデータを渡して表示
+    res.render('item/index', data)
+})
+
+// 商品詳細
 // /item/xxx のルーティング(パスパラメータ)
 router.get('/item/:id', (req, res) => {
     const id = req.params.id 
