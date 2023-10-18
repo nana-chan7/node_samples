@@ -23,7 +23,18 @@ router.get('/', (req, res) =>{
 
 router.get('/profile', (req, res) =>{
     // res.send('プロフィール')
-    res.render('profile')
+    var user = {
+        id: 1,
+        name: 'YSE',
+        birthplace: '横浜',
+        hobby: ['旅行', 'グルメ', 'スポーツ'],
+    }
+    var data = {
+        title: 'プロフィール',
+        user: user,
+    }
+    // views/profile.ejsに dataを渡して表示
+    res.render('profile', data)
 
 })
 

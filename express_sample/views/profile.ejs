@@ -9,14 +9,25 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/profile.ejs">Profile</a></li>
+            <li><a href="/profile">Profile</a></li>
         </ul>
     </nav>
     
-    <h1>Profile</h1>
+    <h1><%= title %></h1>
     <dl>
-        <dt>名前</dt>
-        <dt>YSE</dt>
+        <dt>氏名</dt>
+        <dd><%= user.name %></dd>
+        <dt>出身地</dt>
+        <dd><%= user.birthplace %></dd>
+        <dt>趣味</dt>
+        <dd>
+            <ul>
+                <!-- usert.hobbyを繰り返し、liタグで表示 -->
+                <% user.hobby.forEach((value) => { %>
+                    <li><%= value %></li>
+                <% }) %>            
+            </ul>
+        </dd>
     </dl>
 </body>
 </html>
