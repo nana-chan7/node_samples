@@ -19,7 +19,7 @@ exports.index = (req, res) => {
  * 商品詳細
  */
 // /item/xxx のルーティング(パスパラメータ)
-exports.index = (req, res) => {
+exports.detail = (req, res) => {
     const id = req.params.id 
     // TODO: case1> RDBMSを利用する
     // TODO: case2> APIサーバを利用する
