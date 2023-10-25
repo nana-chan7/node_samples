@@ -9,6 +9,7 @@ const dotenv = require('dotenv')
 // routerモジュール読み込み
 const routes = require('./routes')
 
+
 // dotenvの設定の読み込み
 dotenv.config()
 const HOST = process.env.HOST
@@ -27,8 +28,14 @@ app.use(express.static(__dirname + '/public'));
 // URLエンコード
 app.use(express.urlencoded({extended:true}))
 
-// EJSをテンプレートエンジンとして設定
+// express-ejs-layoutsモジュールを読み込み
+const layouts = require('express-ejs-layouts')
+// EJSをテンプレートエンジンとして設定(ルーティングの上に記述 ※科基準大事！)
 app.set('view engine', 'ejs')
+// views/layouts/default.ejsをレイアウトとして利用
+app.set('layout', 'layouts/default')
+// ミドルウェアとして利用
+app.use(layouts)
 
 // ルーティングを有効
 app.use(routes)
