@@ -1,5 +1,6 @@
 // 2023-10-11 3.week4
 // 2023-10-18 3.week5
+// 2023-10-25 3.week6
 
 // expressモジュール読み込み
 const express = require('express')
@@ -10,67 +11,18 @@ const item = require('./models/item')
 
 // HomeControllerモジュールを読み込み
 const HomeController = require('./controllers/HomeController')
+// ItemControllerモジュールを読み込み
+const HomeController = require('./controllers/ItemController')
 
 // GETリクエストの処理
-// トップページ
+// Home
 router.get('/', HomeController.index)
 router.get('/profile', HomeController.index)
+// Item
+router.get('/item', ItemController.index)
+router.get('/item/:id', ItemController.detail)
 
-// router.get('/', (req, res) =>{
-//     // リクエストの処理
-//     console.log(req.body)
-//     console.log(req.url)
-//     console.log(req.query)
-
-//     // レスポンスの処理
-//     // res.send('Hello!!!')
-//     // テンプレート表示(レンダリング)
-//     res.render('index')
-// })
-
-// router.get('/profile', (req, res) =>{
-//     // res.send('プロフィール')
-//     var user = {
-//         id: 1,
-//         name: 'YSE',
-//         birthplace: '横浜',
-//         hobby: ['旅行', 'グルメ', 'スポーツ'],
-//     }
-//     var data = {
-//         title: 'プロフィール',
-//         user: user,
-//     }
-//     // views/profile.ejsに dataを渡して表示
-//     res.render('profile', data)
-
-// })
-
-// 商品一覧
-router.get('/item', (req, res) => {
-    var data = {
-        title: '商品一覧',
-        items: item.get(),
-    }
-    // views/item/index.ejsにデータを渡して表示
-    res.render('item/index', data)
-})
-
-// 商品詳細
-// /item/xxx のルーティング(パスパラメータ)
-router.get('/item/:id', (req, res) => {
-    const id = req.params.id 
-    // TODO: case1> RDBMSを利用する
-    // TODO: case2> APIサーバを利用する
-    // itemモデルを使って、IDで商品データを取得
-    var selectItem = item.find(id)
-    // res.send(selectItem.name)
-    var data = {
-        title: '商品詳細',
-        item: selectItem,
-    }
-    // views/item/detail.ejsにデータを渡して表示
-    res.render('item/detail', data)
-})
+// ☆ router はControllerへ
 
 // POSTリクエスト 裏でログイン名とパスワードを送信する
 router.post('/auth', (req, res) =>{
