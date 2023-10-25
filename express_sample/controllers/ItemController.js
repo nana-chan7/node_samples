@@ -15,7 +15,9 @@ exports.index = (req, res) => {
     res.render('item/index', data)
 }
 
-// 商品詳細
+/**
+ * 商品詳細
+ */
 // /item/xxx のルーティング(パスパラメータ)
 exports.index = (req, res) => {
     const id = req.params.id 
