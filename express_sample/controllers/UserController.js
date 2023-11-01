@@ -2,8 +2,17 @@
 
 // トップページ
 exports.index = (req, res) => {
-    // views/user/index.ejsを表示
-    res.render('user/index')
+    // ユーザのセッションを取得
+    const user = req.session.authUser
+
+    // ログインユーザがいれば、
+    if (user) {
+        // views/user/index.ejsを表示
+        res.render('user/index')
+    }else{
+        // ログインユーザがいなければ、ログインページにリダイレクト
+        res.redirect('/login')
+    }
 }
 
 

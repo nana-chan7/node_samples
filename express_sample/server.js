@@ -2,6 +2,7 @@
 // 2023-10-11 3.week4
 // 2023-10-18 3.week5
 // 2023-10-25 3.week6
+// 2023-11-01 3.week7
 
 // expressモジュール読み込み
 const express = require('express')
@@ -37,6 +38,14 @@ app.set('view engine', 'ejs')
 app.set('layout', 'layouts/default')
 // ミドルウェアとして利用
 app.use(layouts)
+
+// Express Sessionのミドルウェア追加
+const session = require('express-session')
+app.use(session({
+    secret: 'secret_key',
+    resave: false,
+    saveUninitalized: false,
+}))
 
 // ルーティングを有効
 app.use(routes)
