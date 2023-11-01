@@ -18,6 +18,7 @@ const LoginController = require('./controllers/LoginController')
 // Home
 router.get('/', HomeController.index)
 router.get('/profile', HomeController.profile)
+
 // Item
 router.get('/item', ItemController.index)
 router.get('/item/:id', ItemController.detail)
