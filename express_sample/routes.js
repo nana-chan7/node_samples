@@ -30,7 +30,7 @@ router.get('/login', LoginController.index)
 router.post('/auth', LoginController.auth)
 
 // User
-router.get('/', UserController.index)
+router.get('/user', UserController.index)
 
 // ☆ router はControllerへ
 
