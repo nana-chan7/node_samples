@@ -13,6 +13,8 @@ const HomeController = require('./controllers/HomeController')
 const ItemController = require('./controllers/ItemController')
 // LoginControllerモジュールを読み込み
 const LoginController = require('./controllers/LoginController')
+// UserControllerモジュールを読み込み
+const UserController = require('./controllers/UserController')
 
 // GETリクエストの処理
 // Home
@@ -26,6 +28,9 @@ router.get('/item/:id', ItemController.detail)
 // Login
 router.get('/login', LoginController.index)
 router.post('/auth', LoginController.auth)
+
+// User
+router.get('/', UserController.index)
 
 // ☆ router はControllerへ
 
