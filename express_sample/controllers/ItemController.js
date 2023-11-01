@@ -25,9 +25,9 @@ exports.index = (req, res) => {
 // /item/xxx のルーティング(パスパラメータ)
 exports.detail = (req, res) => {
     const id = req.params.id 
-    // TODO: case1> RDBMSを利用する
-    // TODO: case2> APIサーバを利用する
-    // itemモデルを使って、IDで商品データを取得
+    // Itemインスタンスを生成
+    const item = new Item()
+
     var selectItem = item.find(id)
     // res.send(selectItem.name)
     var data = {
@@ -36,5 +36,8 @@ exports.detail = (req, res) => {
     }
     // views/item/detail.ejsにデータを渡して表示
     res.render('item/detail', data)
-}
 
+    // TODO: case1> RDBMSを利用する
+    // TODO: case2> APIサーバを利用する
+    // itemモデルを使って、IDで商品データを取得
+}
