@@ -1,14 +1,18 @@
 // 2023-10-25 3.week6
 
-// modules/item.jsを読み込み
-const item = require('../models/item')
+// modules/Item.jsを読み込み
+const Item = require('../models/Item')
 
 /**
  * 商品一覧
  */
 exports.index = (req, res) => {
+    // Itemインスタンスを生成
+    const item = new Item()
+
     var data = {
         title: '商品一覧',
+        // 商品をすべて取得
         items: item.get(),
     }
     // views/item/index.ejsにデータを渡して表示
