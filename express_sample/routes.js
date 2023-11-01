@@ -31,6 +31,7 @@ router.post('/auth', LoginController.auth)
 
 // User
 router.get('/user', UserController.index)
+router.get('/user/logout', UserController.logout)
 
 // ☆ router はControllerへ
 
