@@ -1,6 +1,8 @@
 // 2023-10-11 3.week4
 // 2023-10-18 3.week5
 // 2023-10-25 3.week6
+// 2023-11-15 3.week8
+
 
 // expressモジュール読み込み
 const express = require('express')
@@ -17,6 +19,11 @@ const LoginController = require('./controllers/LoginController')
 const UserController = require('./controllers/UserController')
 
 // GETリクエストの処理
+
+// Regist
+router.get('/regist', RegistController.index)
+router.get('/regist/add', RegistController.add)
+
 // Home
 router.get('/', HomeController.index)
 router.get('/profile', HomeController.profile)
