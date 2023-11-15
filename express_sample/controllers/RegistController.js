@@ -1,7 +1,7 @@
 // 2023-11-15 3.week8
 
 // Userモデル
-const User = require('../models/User')
+const User = require('../models/Users')
 
 exports.index = (req, res) => {
     res.render('regist/index')

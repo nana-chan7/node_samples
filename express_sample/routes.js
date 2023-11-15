@@ -9,6 +9,8 @@ const express = require('express')
 // Routerオブジェクトを生成
 const router = express.Router()
 
+// RegistControllerモジュールを読み込み
+const RegistController = require('./controllers/RegistController')
 // HomeControllerモジュールを読み込み
 const HomeController = require('./controllers/HomeController')
 // ItemControllerモジュールを読み込み

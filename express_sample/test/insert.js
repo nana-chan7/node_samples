@@ -1,6 +1,6 @@
 // 2023-11-15 3.week8
 
-const User = require('../models/User')
+const User = require('../models/Users')
 
 var user = new User();
 var data = { 
