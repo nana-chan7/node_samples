@@ -10,23 +10,24 @@ exports.index = (req, res) => {
 
 // ログイン処理
 // POSTリクエスト 裏でログイン名とパスワードを送信する
-exports.auth = (req, res) =>{
+exports.auth = async (req, res) => {
     // POSTデータの受け取り
     var email = req.body.login_name
     var password = req.body.password
 
-    // ユーザ認証
+    //ユーザ認証
     const user = new User()
-    const authUser = user.auth(email, password)
+    const authUser = await user.auth(email, password)
+    console.log('result:', authUser)
 
     if (authUser) {
-        // 認証ユーザがいれば、ユーザをセッションに保存
+        //認証ユーザがいれば、ユーザをセッションに保存
         req.session.authUser = authUser
         
-        // ユーザホームにリダイレクト
+        //ユーザホームにリダイレクト
         res.redirect('/user')
-    }else {
-        // 認証が失敗したら、ログインページにリダイレクト
+    } else {
+        //認証が失敗したら、ログインページにリダイレクト
         res.redirect('/login')
     }
 
